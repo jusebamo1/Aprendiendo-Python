@@ -1,5 +1,8 @@
 def Menu(): 
-    print("1)Agregar nombre \t 2)Agregar Apellido \n3)Eliminar\t4)Ver lista\n5)Salir")
+    import os,sys
+    print("Bienvenido")
+    print("")
+    print("1)Agregar nombre\n2)Agregar Apellido\n3)Eliminar\n4)Ver lista\n5)Salir")
 
 def VerList():
     print("NOMBRES: \t APELLIDOS:")
@@ -17,9 +20,15 @@ nombres =[]
 apellidos =[]
 
 while True:
-    print("Bienvenido")
+    print("")
     Menu()
-    opc1 = int(input("Cual desea realizar?:"))
+    try:
+        opc1 = int(input("Introduzca el número de la opcion a realizar:"))
+    except:
+        print("--- Eso no es un número, por favor introduce un número...")  
+
+        Menu()
+    opc1 = opc1
     while opc1 >0 and opc1 <5:
         if opc1 == 1:
             #ADD to list and filter upperCase
