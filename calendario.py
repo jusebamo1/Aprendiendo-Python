@@ -17,14 +17,10 @@ def OrdenDia(dia):
     y = x-7
     for i in range(x, y , -1):
         print(semanaReal[i])
-        semana3 = semana.append()
-
-        
-
-    
+        semana.append(semanaReal[i])    
 
 while True :
-   D = OrdenDia(input("Dia de la semana:"))
-   B = BuscarDiadelaSemana(int(input("# de Dias que quiere retroceder:")))
-
-   break 
+    D = OrdenDia(input("Dia de la semana:"))
+    B = BuscarDiadelaSemana(int(input("# de Dias que quiere retroceder:"))+1)
+    break
+    
