@@ -2,7 +2,7 @@
 semanaReal = ("lunes","martes","miercoles","jueves","viernes","sabado","domingo")
 semana = []
 
-n = 0
+
 #busca el dia de la semana...
 def BuscarDiadelaSemana(n):
     if (n > 7):
@@ -16,15 +16,16 @@ def OrdenDia(dia):
     x = semanaReal.index(dia)
     y = x-7
     for i in range(x, y , -1):
-        print(semanaReal[i])
-        semana3 = semana.append()
+        #print(semanaReal[i])
+        semana.append(semanaReal[i])
 
         
 
     
 
-while True :
-   D = OrdenDia(input("Dia de la semana:"))
-   B = BuscarDiadelaSemana(int(input("# de Dias que quiere retroceder:")))
 
-   break 
+D = OrdenDia(input("Dia de la semana:"))
+
+B = BuscarDiadelaSemana(int(input("# de Dias que quiere retroceder:"))+1)
+
+   
