@@ -16,27 +16,34 @@ GPIO.setup(entrada1, GPIO.IN)
 
 
 #subprograma:
+def filtro(lectura, estado):
     
+    
+    if lectura == 1 and estado==1:
+            estado = 0
+            t.sleep(0.2)
+            return estado
+        
+    elif lectura == 1 and estado==0:
+            estado = 1
+            t.sleep(0.2)
+            return estado
+            
 
 #Programa Principal
 try:
     
     while 1:
-        lectura = GPIO.input(entrada1)
         
-        
-        if lectura == 1 and estado==1:
-            estado = 0
-            t.sleep(0.2)
-            GPIO.output(led1,GPIO.LOW)
-        
-        elif lectura == 1 and estado==0:
-            estado = 1
-            t.sleep(0.2)
-            GPIO.output(led1,GPIO.HIGH)
-            
-        
+        f= filtro(GPIO.input(entrada1),estado)
         print(estado)
+        
+        if f == 1:
+            GPIO.output(led1,GPIO.HIGH)
+            t.sleep(0.5)
+        elif f == 0:
+            GPIO.output(led1,GPIO.LOW)
+            t.sleep(0.5)
           
             
         
