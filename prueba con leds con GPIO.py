@@ -62,6 +62,6 @@ except KeyboardInterrupt:
 finally:
     print("Acabé")
     
-p.stop()
+
 GPIO.cleanup()
 
