@@ -60,7 +60,6 @@ def nivel(ledsPrendidos):
 
 
 
-
-
+nivel(2)
 
     
