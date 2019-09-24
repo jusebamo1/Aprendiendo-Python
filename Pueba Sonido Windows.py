@@ -1,6 +1,8 @@
 from winsound import Beep
 import time
 
+
+
 class parlante():
     #Constructor
     def __init__(self,color,marca, status,nivel,Vnivel):
@@ -27,6 +29,7 @@ class parlante():
 
 ##################------CANCIONES-------##########################
 
+    
     def __TocarMusica1(self):
        ###################################################
        # Mario Bros Theme ( Beep Music )##################
@@ -590,6 +593,7 @@ class parlante():
         Beep(880, 1000) 
         Beep(838, 2000)
 
+ 
 #################----BASICOS----#########################
 
     def Encender(self,estado):
@@ -602,6 +606,7 @@ class parlante():
                 break
             self.isEncendido = True
             self.__MusicEncendido()
+            self.MostrarMenu()
             return 1
     
     def Apagar(self,estado):
@@ -620,53 +625,83 @@ class parlante():
     def VerVolumen(self):
         print(self.volumen)
 
+    def play(self, arg1, arg2, arg3):
+        print("Reproduciendo audio:")
+        Beep(arg1, arg2)
+        time.sleep(arg3)
+        print("Fin audio:")
+
     def PlayMusic(self):
         try:
             print("Reproduciendo audio:")
-            time.sleep(1)
-            self.__TocarMusica1()
-            time.sleep(2)
-            self.__TocarMusica2()
-            time.sleep(2)
-            self.__TocarMusica3()
-            time.sleep(2)
-            self.__TocarMusica4()
-            time.sleep(2)
-            self.__TocarMusica5()
-        except KeyboardInterrupt:
+            
+        except: 
+            KeyboardInterrupt 
             e = input("press enter:")
     
     def StopMusic(self,stop):
-        while PlayMusic == True:
-            break
+        if PlayMusic == True:
+            miSong
 
     def ChangeSong(self):
         pass
 
     def __Menu(self):
+        pass
+        '''
         print("\nElige una opcion:\n1)Tocar cancion\n2)Detener\n3)Cambiar cancion\n4)Apagar Parlante")
         
         f = int(input("Cual Opcion eliges?:"))
 
         while f > 0 and f< 5:
             if f == 1:
-                self.PlayMusic()
-                break
+                #self.play()
+                self.MostrarMenu()
+            elif f == 2:
+                self.StopMusic()
+                self.MostrarMenu
+            elif f == 3:
+                self.ChangeSong()
+                self.MostrarMenu()
             elif f == 4:
-                print("jj")
                 self.Apagar(True)
                 break
+        '''
 
 
     def MostrarMenu(self):
         self.__Menu()
-ParlanteJBL = parlante("Rojo","JBL",True,100,50)
-
-ParlanteJBL.Encender(True)
-ParlanteJBL.MostrarMenu()
 
 
+#ParlanteJBL = parlante("Rojo","JBL",True,100,50)
+
+#ParlanteJBL.Encender(True)
+#ParlanteJBL.MostrarMenu()
+
+QSC = parlante("Rojo","QSC",True,100,50)
+QSC.Encender(True)  
+
+
+miSong =  [[300,500, 1], [300,300, 0.1], [300,300, 2], [100,500, 0.1], [200,600, 1 ]]
+miSong2 = [300,500, 0.1]
+miSong3 = [300,500, 0.1]
+'''
+QSC.play(miSong)
+'''
+
+
+
+def desconcatenar(lista):
+    a1,a2,a3 = lista
+    
+    QSC.play(a1,a2,a3)
+
+def partirCadena(lista):
+    for elemento in lista:
+        
+        desconcatenar(elemento)
 
 
 
 
+qsc.REPRODUCIR(miSong)
