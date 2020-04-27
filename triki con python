@@ -1,0 +1,105 @@
+#----------------Triki de dos jugadores-----------------------
+
+
+
+laMesa = {'1': ' ' , '2': ' ' , '3': ' ' ,
+            '4': ' ' , '5': ' ' , '6': ' ' ,
+            '7': ' ' , '8': ' ' , '9': ' ' }
+
+numero_tablero = []
+
+for numero in laMesa:
+    numero_tablero.append(numero)
+
+# definicion de vista de la mesa
+def VerMesa(mesa):
+    print(mesa['1'] + '|' + mesa['2'] + '|' + mesa['3'])
+    print('-+-+-')
+    print(mesa['4'] + '|' + mesa['5'] + '|' + mesa['6'])
+    print('-+-+-')
+    print(mesa['7'] + '|' + mesa['8'] + '|' + mesa['9'])
+
+# Funcionalidad del juego
+def juego():
+    #inicia x de primero
+    turno = 'X'
+    cont = 0
+
+
+    for i in range(10):
+        VerMesa(laMesa)
+        print("Es el turno de," + turno + ". Donde quieres mover?")
+
+        mover = input()        
+
+        if laMesa[mover] == ' ':
+            laMesa[mover] = turno
+            cont += 1
+        else:
+            print("El lugar esta ocupado.\nDonde quieres mover")
+            continue
+
+        # por cada 5 movimientos tanto X o O puede llegar a ganar. 
+        if cont >= 5:
+            if laMesa['7'] == laMesa['8'] == laMesa['9'] != ' ': # fila  final
+                VerMesa(laMesa)
+                print("\nJuego Terminado.\n")                
+                print(" **** " +turno + " gano. ****")
+                break
+            elif laMesa['4'] == laMesa['5'] == laMesa['6'] != ' ': # fila del centro
+                VerMesa(laMesa)
+                print("\nJuego Terminado.\n")                
+                print(" **** " +turno + " gano. ****")
+                break
+            elif laMesa['1'] == laMesa['2'] == laMesa['3'] != ' ': # fila inicial
+                VerMesa(laMesa)
+                print("\nJuego Terminado.\n")                
+                print(" **** " +turno + " gano. ****")
+                break
+            elif laMesa['1'] == laMesa['4'] == laMesa['7'] != ' ': # primera columna
+                VerMesa(laMesa)
+                print("\nJuego Terminado.\n")                
+                print(" **** " +turno + " gano. ****")
+                break
+            elif laMesa['2'] == laMesa['5'] == laMesa['8'] != ' ': # columna del centro
+                VerMesa(laMesa)
+                print("\nJuego Terminado.\n")                
+                print(" **** " +turno + " gano. ****")
+                break
+            elif laMesa['3'] == laMesa['6'] == laMesa['9'] != ' ': # columna derecha
+                VerMesa(laMesa)
+                print("\nJuego Terminado.\n")                
+                print(" **** " +turno + " gano. ****")
+                break 
+            elif laMesa['7'] == laMesa['5'] == laMesa['3'] != ' ': # diagonal 1
+                VerMesa(laMesa)
+                print("\nJuego Terminado.\n")                
+                print(" **** " +turno + " gano. ****")
+                break
+            elif laMesa['1'] == laMesa['5'] == laMesa['9'] != ' ': # diagonal 2
+                VerMesa(laMesa)
+                print("\nJuego Terminado.\n")                
+                print(" **** " +turno + " gano. ****")
+                break 
+
+        # Si X o O llenan los espacios y no hay ganador. es un empate.
+        if cont == 9:
+            print("\nJuego terminado.\n")                
+            print("Es un empate!!")
+
+        # Cambio de jugador por turno.
+        if turno =='X':
+            turno = 'O'
+        else:
+            turno = 'X'        
+    
+    # pregunta para reiniciar o no el juego.
+    restart = input("Quieres jugar de nuevo?(y/n)")
+    if restart == "y" or restart == "Y":  
+        for numero in numero_tablero:
+            laMesa[numero] = " "
+
+        juego()
+
+if __name__ == "__main__":
+    juego()
